@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>create</title>
+    <link rel="stylesheet" href="./dialog.css" />
+    <!-- <script src="./10/task.js" defer></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+    <div class="modal card" id="add-modal">
+      <div class="modal__content">
+        <label for="title">Why do you want to work for Photojaanic?</label>
+        <input type="text" name="title" id="title" />
+        <label for="image-url">favorite product spotify-url</label>
+        <input type="text" name="image-url" id="image-url" />
+        <label for="rating">Your Rating</label>
+        <input
+          type="number"
+          step="1"
+          max="5"
+          min="1"
+          name="rating"
+          id="rating"
+        />
+      </div>
+      <div class="modal__actions">
+        <button class="btn btn--passive">Cancel</button>
+        <button class="btn btn--success">Add</button>
+      </div>
+    </div>
+    <div class="modal card" id="delete-modal">
+      <h2 class="modal__title"> Are you sure?</h2>
+      <p class="modal__content">
+      
+        Please answer the question below. Kindly provide 3 or more sentences. Thank you
+      </p>
+      <div class="modal__actions">
+        <button class="btn btn--passive">No (Cancel)</button>
+        <button class="btn btn--danger">Yes</button>
+      </div>
+    </div>
+
+    <header>
+      <h1>Photojaanic</h1>
+      <button id="btn1">Create</button>
+    </header>
+
+    <main>
+      <section id="entry-text" class="card">
+        <h2>Hii</h2>
+        <p>  Thank you for your interest in the role. 
+          Please answer the question below. Kindly provide 3 or more sentences.
+        
+        </p>
+        <h4> Thank you</h4>
+      </section>
+      <ul id="movie-list"></ul>
+    </main>
+    
+    <script>
+        debugger
+        const btn1=document.querySelector("#btn1");
+let d1=document.querySelector("#add-modal");
+let ul=document.querySelector("#movie-list");
+let backdrop=document.querySelector("#backdrop");
+let cancle=document.querySelector(".btn--passive");
+let add=document.querySelector(".btn--success");
+let sec=document.querySelector("#entry-text");
+let d2=document.querySelector("#delete-modal");
+backdrop.addEventListener('click',function(){
+    backdrop.classList.remove('visible');//
+});''
+
+//for no cancle btn
+let cancle2=d2.children[2].children[0]
+//for delet yes
+let yes=d2.children[2].children[1]
+console.log(yes)
+//inputs
+let title=document.querySelector("#title");
+//for add movie btn
+btn1.addEventListener("click", addm)
+function addm(event){
+  backdrop.style.display="block"
+   //backdrop.classList.add("visible");
+   //backdrop.className="visible";
+  // console.log(backdrop.className="visible")
+   d1.style.display="block";
+   // console.log(ele.appendChild(d1))
+   //backdrop.addEventListener("click",r)
+  }
+//for cancle
+cancle.addEventListener("click" ,can)
+function can(event){
+  
+  backdrop.style.display="none";
+  d1.style.display="none";
+  }
+
+  //forbackdrop
+  backdrop.addEventListener("click",can)
+//for data add
+
+add.addEventListener("click",adddata)
+function adddata(){
+  // alert("HI")
+  let title=document.querySelector("#title");
+  let image=document.querySelector("#image-url");
+  let rating=document.querySelector("#rating");
+
+var butto=document.createElement("button")//
+var newli=document.createElement("li");//
+var div1=document.createElement("div");
+var div2=document.createElement("div");
+var div3=document.createElement("div");
+var img=document.createElement("img");
+
+
+newli.className="card";
+newli.id="entry-text";
+butto.innerText="delete";
+butto.className="btn--success"
+butto.className="btn"
+div2.className="movie-element__image";
+div2.className="movie-element__image img";
+div1.className="movie-element h2";
+div1.className="movie-element__info"
+div3.className="movie-element p"
+
+
+img.src=image.value;
+div2.appendChild(img);
+console.log(div2)
+div1.textContent=title.value;
+//div2.innerText=image.value;
+div3.innerText=rating.value
+newli.appendChild(div1)
+newli.appendChild(div2)
+newli.appendChild(div3)
+ul.appendChild(newli)
+newli.appendChild(butto)
+//console.log(newli)
+console.log(ul)
+
+sec.style.display="none";
+console.log(yes)
+butto.addEventListener("click",del)
+
+can();
+cancle2.addEventListener("click",rem);
+//yes.addEventListener("click",yess)
+title.value=" ";
+image.value=" ";
+rating.value=" ";
+
+}
+function del(event){
+console.log(event.target)
+  d2.style.display="block";
+  console.log(ul.children[0].children);
+  
+  yes.addEventListener("click",yess)
+  function yess(){
+    console.log(event.target)
+    event.target.parentNode.remove();
+    //sec.style.display="block";
+    rem();
+    
+//   ul.children[i].style.display="none"
+  }
+  
+
+ 
+}
+function rem(){
+  d2.style.display="none"
+}
+
+    </script>
+  </body>
+</html>
